@@ -1,6 +1,7 @@
 package by.flamexander.microservices.product.controller;
 
 import by.flamexander.microservices.product.dto.ProductRequest;
+import by.flamexander.microservices.product.model.Product;
 import by.flamexander.microservices.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,7 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createProduct(@RequestBody ProductRequest productRequest) {
-        productService.createProduct(productRequest);
+    public Product createProduct(@RequestBody ProductRequest productRequest) {
+        return productService.createProduct(productRequest);
     }
 }
