@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor(onConstructor_ = {@Autowired})
 @Slf4j
@@ -24,5 +26,9 @@ public class ProductService {
         productRepository.save(product);
         log.info("Product created successfully");
         return product;
+    }
+
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 }
