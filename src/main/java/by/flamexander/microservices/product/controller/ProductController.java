@@ -1,6 +1,7 @@
 package by.flamexander.microservices.product.controller;
 
 import by.flamexander.microservices.product.dto.ProductRequest;
+import by.flamexander.microservices.product.dto.ProductResponse;
 import by.flamexander.microservices.product.model.Product;
 import by.flamexander.microservices.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +19,13 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Product createProduct(@RequestBody ProductRequest productRequest) {
+    public ProductResponse createProduct(@RequestBody ProductRequest productRequest) {
         return productService.createProduct(productRequest);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Product> getAllProducts() {
+    public List<ProductResponse> getAllProducts() {
         return productService.getAllProducts();
     }
 }
